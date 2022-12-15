@@ -1,7 +1,7 @@
 <div class="left-part">
     <div class="login">
         <h2>Giriş Yap</h2>
-        <form method="post" action="https://demo.metin2panel.com/ares/login/control" id="loginForm" accept-charset="utf-8" onkeypress="return event.keyCode != 13;" autocomplete="off">
+        <form method="post" action="index.php" accept-charset="utf-8"  autocomplete="off">
             <div class="form-group">
                 <input id="login_input" type="text" class="form-control" name="login" placeholder="Kullanıcı Adı" maxlength="16" autocomplete="off">
             </div>
@@ -17,29 +17,53 @@
                 <div class="btn account-btn">Kaydol</div>
             </a>
         </form>
-        <script>
-            $("#loginForm").on('submit', function(event) {
-                event.preventDefault();
+        <?php
+        // Çerezde giriş var ise anasayfaya gidiyor
+        if (isset($_SESSION['giris_tamam'])) {
+           // header("refresh:1, url=admin_paneli.php");
+        } else {
+            //Giriş yapılmadı boş
+        }
 
-                var url = $(this).attr("action");
-                var data = $(this).serialize();
+        // Gelen Post var mı varsa bunları değişkene aktar yapılıyor
+        if ($_POST) {
 
-                $.ajax({
-                    url: url,
-                    type: 'POST',
-                    data: data,
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.result)
-                            window.location.href = response.redirect;
-                        else {
-                            errorNotify(response.message);
-                            grecaptcha.reset();
+            $mail = $_POST['login'];
+            $sifre = $_POST['password'];
+
+            // Mail ile şifre boşmu dolu ise bu şekilde bir kullanıcı var mı 
+            if ($mail == "" or $sifre == "") { ?>
+                <div class="alert alert-danger" role="alert">
+                    Lütfen boş geçmeyin !
+                </div> <?php
+                    } else {
+                        $kullanicikontrol = $db->prepare("SELECT * FROM kullanicilar WHERE kullanici_adi = ? and sifre = ?");
+                        $kullanicikontrol->execute([$mail, $sifre]);
+                        $kullanicikontrolsayisi = $kullanicikontrol->rowCount();
+
+                        // Kullanıcı var mı varsa vt de var mı 
+                        if ($kullanicikontrolsayisi > 0) {
+
+                            $_SESSION['giris_tamam'] = $mail;
+
+                        ?>
+                    <div class="alert alert-success" role="alert">
+                        Başarı ile giriş yapıldı, <b>yönlendiriliyorsunuz</b>
+                    </div>
+                <?php
+
+                            //header("refresh:1, url=admin_paneli.php");
+                        } else {
+                ?>
+                    <div class="alert alert-danger" role="alert">
+                        Kullanıcı bulunamadı !
+                    </div>
+        <?php
                         }
                     }
-                });
-            });
-        </script>
+                } else {
+                }
+        ?>
     </div>
 
     <div class="bottom-table">

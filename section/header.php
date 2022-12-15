@@ -1,9 +1,8 @@
+<?php include "section/db.php" ?>
 <!DOCTYPE html>
 <html lang="tr">
 
-<!-- Mirrored from demo.metin2panel.com/ares/index by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 15 Dec 2022 19:19:54 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
 
@@ -219,7 +218,7 @@
                     <ul class="right-menu">
                         <li><a href="player.php">Sıralama</a></li>
                         <li><a target="_blank" href="https://discord.com/invite/szMPGvTJgm">Destek</a></li>
-                        <li><a href="https://discord.com/invite/qb2NGn2DJ9">Tanıtım</a></li>
+                        <li><a target="_blank" href="https://discord.com/invite/qb2NGn2DJ9">Tanıtım</a></li>
                     </ul>
                 </div>
             </nav>

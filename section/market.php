@@ -16,7 +16,7 @@
 
     <div class="vote-btns">
         <div class="vote-btn-bg">
-            <a href="https://www.facebook.com/metinpanel" target="_blank">
+            <a href="https://www.facebook.com/people/Twelve-sky-2-Reloaded-/100088134660860/?mibextid=ZbWKwL" target="_blank">
                 <div class="btn btn-vote">
                     <img src="app/public/client/ares/asset/images/vote-icon.png" alt="icon" class="img-fluid">
                     Facebook Sayfamız

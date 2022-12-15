@@ -3,7 +3,7 @@
 <div class="content clearfix">
     <div class="container">
         <div class="content-main">
-        <?php include "section/giris.php" ?>
+            <?php include "section/giris.php" ?>
             <div class="middle-part">
                 <div class="top-banner-middle">
                     <img src="app/public/client/ares/asset/images/top-banner-img.png" alt="top-banner-img">
@@ -27,27 +27,89 @@
                             <h3>Kayıt Ol</h3>
                         </div>
                         <div class="update-available-inner">
-                            <form id="registerForm" action="https://demo.metin2panel.com/ares/register/control" method="POST" class="page_form" autocomplete="off">
+                            <?php
+
+                            # ekleme işlemi olackatır 
+                            if ($_POST) {
+                                $sifre = $_POST["password"];
+                                $sifre2 = $_POST["password2"];
+
+                                if ($sifre = $sifre2) {
+
+                                    $kullanici_adi = $_POST["login"];
+                                    $mail_adresi = $_POST["email"];
+                                    $isim_soyisim = $_POST["name"];
+                                    $adres = $_POST["ksk"];
+                                    $telefon = $_POST["phone"];
+                                    $nerden_buldun = $_POST["findme"];
+
+                                    $ekle = $db->prepare("INSERT INTO kullanicilar SET
+                                    kullanici_adi = :kullanici_adi,
+                                    sifre = :sifre,
+                                    mail_adresi = :mail_adresi,
+                                    isim_soyisim = :isim_soyisim,
+                                    adres = :adres,
+                                    telefon = :telefon,
+                                    nerden_buldun = :nerden_buldun
+                                    ");
+
+                                    $kontrol = $ekle->execute(array(
+
+                                        "kullanici_adi" =>   $kullanici_adi,
+                                        "sifre" =>   $sifre,
+                                        "mail_adresi" =>   $mail_adresi,
+                                        "isim_soyisim" =>   $isim_soyisim,
+                                        "adres" =>   $adres,
+                                        "telefon" =>   $telefon,
+                                        "nerden_buldun" =>   $nerden_buldun,
+
+                                    ));
+
+                                    if ($kontrol) {
+                                    ?>
+                                        <div class="alert alert-success mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
+                                            <b>Adresiniz</b> başarılı bir şekilde eklendi
+                                        </div>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <div class="alert alert-danger mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
+                                            <b>Adresiniz</b> eklerken bir sorun yaşandı
+                                        </div>
+                                    <?php
+                                    }
+                                } else {
+                                    ?>
+                                    <div class="alert alert-danger mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
+                                        Şifreler Eşleşmiyor Lütfen Kontrol Ediniz
+                                    </div>
+                            <?php
+                                }
+                            } else {
+                            }
+
+                            ?>
+                            <form action="" method="POST" class="page_form" autocomplete="off">
                                 <table border="0" align="center" width="100%">
                                     <tbody>
                                         <tr>
                                             <td align="center">
                                                 <label>Kullanıcı Adı <br>
-                                                    <input type="text" name="login" id="login" required maxlength="16" onkeypress="return textonly(event,'#login')" />
+                                                    <input type="text" name="login" id="login" required maxlength="16" />
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
                                                 <label>Şifre <br>
-                                                    <input type="password" name="password" id="password" required maxlength="30" />
+                                                    <input type="password" name="password" id="pass" required maxlength="30" />
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
                                                 <label>Şifre Tekrar <br>
-                                                    <input type="password" name="password2" id="password2" required maxlength="30" />
+                                                    <input type="password" name="password2" id="pass2" required maxlength="30" />
                                                 </label>
                                             </td>
                                         </tr>
@@ -61,21 +123,21 @@
                                         <tr>
                                             <td align="center">
                                                 <label>İsim Soyisim <br>
-                                                    <input id="name" type="text" name="name" onkeypress="return textonly2(event,'#name')" maxlength="60" required />
+                                                    <input id="name" type="text" name="name" maxlength="60" required />
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
                                                 <label>Adres <br>
-                                                    <input id="ksk" type="text" name="ksk" onkeypress="return numberonly(event,'#ksk')" maxlength="7" required />
+                                                    <input id="ksk" type="text" name="ksk" maxlength="7" required />
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
                                                 <label>Telefon <br>
-                                                    <input type="text" id="phone" name="phone" onkeypress="return numberonly(event,'#phone')" maxlength="10" placeholder="555-555-55-55" required />
+                                                    <input type="text" id="phone" name="phone" maxlength="10" placeholder="555-555-55-55" required />
                                                 </label>
                                             </td>
                                         </tr>
@@ -84,11 +146,12 @@
                                                 <label>Bizi nerden buldunuz?
                                                     <br>
                                                     <select name="findme" class="select-box">
-                                                        <option value="0" selected>Lütfen seçiniz...</option>
-                                                        <option value="1">Google</option>
-                                                        <option value="2">Facebook</option>
-                                                        <option value="3">Youtube</option>
-                                                        <option value="4">Instagram</option>
+                                                        <option value="yok" selected>Lütfen seçiniz...</option>
+                                                        <option value="google">Google</option>
+                                                        <option value="facebook">Facebook</option>
+                                                        <option value="youtube">Youtube</option>
+                                                        <option value="instagram">Instagram</option>
+                                                        <option value="discord">Discord</option>
                                                     </select>
                                                 </label>
                                             </td>
