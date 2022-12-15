@@ -1,0 +1,1 @@
+<script>window.location = "ishop/login.php";</script>

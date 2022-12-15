@@ -1,0 +1,1 @@
+<script>window.location = "destek/index.php";</script>
