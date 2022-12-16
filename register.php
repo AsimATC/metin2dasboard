@@ -34,7 +34,7 @@
                                 $sifre = $_POST["password"];
                                 $sifre2 = $_POST["password2"];
 
-                                if ($sifre = $sifre2) {
+                                if ($sifre == $sifre2) {
 
                                     $kullanici_adi = $_POST["login"];
                                     $mail_adresi = $_POST["email"];
@@ -68,13 +68,13 @@
                                     if ($kontrol) {
                                     ?>
                                         <div class="alert alert-success mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                            <b>Adresiniz</b> başarılı bir şekilde eklendi
+                                            <b>Üyelik</b> başarılı bir şekilde eklendi
                                         </div>
                                     <?php
                                     } else {
                                     ?>
                                         <div class="alert alert-danger mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                            <b>Adresiniz</b> eklerken bir sorun yaşandı
+                                            <b>Üyelik</b> eklerken bir sorun yaşandı
                                         </div>
                                     <?php
                                     }
@@ -130,7 +130,7 @@
                                         <tr>
                                             <td align="center">
                                                 <label>Adres <br>
-                                                    <input id="ksk" type="text" name="ksk" maxlength="7" required />
+                                                    <input id="ksk" type="text" name="ksk"  required />
                                                 </label>
                                             </td>
                                         </tr>

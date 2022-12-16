@@ -33,10 +33,24 @@
         </div>
     </div>
 
-    <div class="shop-item">
-        <img src="app/public/client/ares/asset/images/shop-image.jpg" alt="shop" class="img-fluid">
-        <a href="ishop.php" class="itemshop itemshop-btn iframe"><button class="btn btn-shop disable-btn">Market</button></a>
-    </div>
+    <?php
+    if (isset($_SESSION['giris_tamam'])) {
+    ?>
+        <div class="shop-item">
+            <img src="app/public/client/ares/asset/images/shop-image.jpg" alt="shop" class="img-fluid">
+            <a href="market.php" class=""><button class="btn btn-shop disable-btn">Market</button></a>
+        </div>
+    <?php
+    } else {
+    ?>
+        <div class="shop-item">
+            <img src="app/public/client/ares/asset/images/shop-image.jpg" alt="shop" class="img-fluid">
+            <a href="" class=""><button class="btn btn-shop disable-btn">Merket için giriş yapınız</button></a>
+        </div>
+    <?php
+    }
+    ?>
+
 
     <div class="bottom-table">
         <div class="c-panel-header">

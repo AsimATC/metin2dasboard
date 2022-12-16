@@ -1,7 +1,7 @@
 <div class="left-part">
     <div class="login">
         <h2>Giriş Yap</h2>
-        <form method="post" action="index.php" accept-charset="utf-8"  autocomplete="off">
+        <form method="post" action="index.php" accept-charset="utf-8" autocomplete="off">
             <div class="form-group">
                 <input id="login_input" type="text" class="form-control" name="login" placeholder="Kullanıcı Adı" maxlength="16" autocomplete="off">
             </div>
@@ -12,7 +12,7 @@
             <div class="form-group">
                 <a href="recuperare.php" class="forgot">Şifremi Unuttum</a>
             </div>
-            <button type="submit" class="btn login-btn">Giriş Yap</button>
+            <input type="submit" value="Giriş Yap" name="giris" class="btn login-btn"></input>
             <a href="register.php">
                 <div class="btn account-btn">Kaydol</div>
             </a>
@@ -20,13 +20,13 @@
         <?php
         // Çerezde giriş var ise anasayfaya gidiyor
         if (isset($_SESSION['giris_tamam'])) {
-           // header("refresh:1, url=admin_paneli.php");
+            // header("refresh:1, url=admin_paneli.php");
         } else {
             //Giriş yapılmadı boş
         }
 
         // Gelen Post var mı varsa bunları değişkene aktar yapılıyor
-        if ($_POST) {
+        if (isset($_POST['giris'])) {
 
             $mail = $_POST['login'];
             $sifre = $_POST['password'];
@@ -35,34 +35,35 @@
             if ($mail == "" or $sifre == "") { ?>
                 <div class="alert alert-danger" role="alert">
                     Lütfen boş geçmeyin !
-                </div> <?php
-                    } else {
-                        $kullanicikontrol = $db->prepare("SELECT * FROM kullanicilar WHERE kullanici_adi = ? and sifre = ?");
-                        $kullanicikontrol->execute([$mail, $sifre]);
-                        $kullanicikontrolsayisi = $kullanicikontrol->rowCount();
+                </div>
+                <?php
+            } else {
+                $kullanicikontrol = $db->prepare("SELECT * FROM kullanicilar WHERE kullanici_adi = ? and sifre = ?");
+                $kullanicikontrol->execute([$mail, $sifre]);
+                $kullanicikontrolsayisi = $kullanicikontrol->rowCount();
 
-                        // Kullanıcı var mı varsa vt de var mı 
-                        if ($kullanicikontrolsayisi > 0) {
+                // Kullanıcı var mı varsa vt de var mı 
+                if ($kullanicikontrolsayisi > 0) {
 
-                            $_SESSION['giris_tamam'] = $mail;
+                    $_SESSION['giris_tamam'] = $mail;
 
-                        ?>
+                ?>
                     <div class="alert alert-success" role="alert">
-                        Başarı ile giriş yapıldı, <b>yönlendiriliyorsunuz</b>
+                        Başarı ile giriş yapıldı, <b><!--yönlendiriliyorsunuz--></b>
                     </div>
                 <?php
 
-                            //header("refresh:1, url=admin_paneli.php");
-                        } else {
+                    //header("refresh:1, url=admin_paneli.php");
+                } else {
                 ?>
                     <div class="alert alert-danger" role="alert">
                         Kullanıcı bulunamadı !
                     </div>
         <?php
-                        }
-                    }
-                } else {
                 }
+            }
+        } else {
+        }
         ?>
     </div>
 
@@ -126,4 +127,19 @@
         </div>
     </div>
 
+</div>
+
+<style>
+    .bg-color {
+        padding: 10px;
+    }
+</style>
+
+<div class="bg-color">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6"></div>
+        </div>
+    </div>
 </div>
