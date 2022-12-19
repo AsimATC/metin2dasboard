@@ -1,12 +1,12 @@
-<?php 
-if (isset($_SESSION['giris_tamam'])) {
+<?php include "section/header.php" ?>
+<?php
 
+if (isset($_SESSION['giris_tamam'])) {
 } else {
-   header("refresh:0, url=index.php");
+    header('Location: index.php');
 }
 ?>
 
-<?php include "section/header.php" ?>
 <style>
     .select-box {
         background-color: #321c11;
@@ -30,12 +30,24 @@ if (isset($_SESSION['giris_tamam'])) {
                 <h3>MARKET </h3>
             </div>
             <div class="update-available-inner">
+                <?php
 
+                $mail = $_SESSION['giris_tamam'];
+
+                $bilgilersor = $db->prepare("SELECT * FROM kullanicilar WHERE kullanici_adi = ? ");
+                $bilgilersor->execute([$mail]);
+
+                foreach ($bilgilersor as $bilgiler) {
+
+                    $kullanici_adi = $bilgiler['kullanici_adi'];
+                    $mail_adresi = $bilgiler['mail_adresi'];
+                }
+                ?>
                 <form action="paytr.php" class="page_form">
-                    <input type="text" placeholder="Kullanıcı Adınız">
+                    <input type="text" placeholder="Kullanıcı Adınız" value="<?php echo $kullanici_adi ?>">
                     <br>
                     <br>
-                    <input type="text" placeholder="Mail Adresiniz">
+                    <input type="text" placeholder="Mail Adresiniz" value="<?php echo $mail_adresi ?>">
                     <br>
                     <br>
                     <select name="price" class="select-box">
