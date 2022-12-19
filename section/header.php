@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base>
-    <title>Metin2 Panel - #</title>
+    <title>Reloadedsky2</title>
     <!-- /meta start -->
 
     <!-- Favicon -->
@@ -206,9 +206,9 @@
             <nav class="navigation-custom">
                 <div class="navigation-inner">
                     <ul class="left-menu">
-                        <li><a href="index.php">Anasayfa</a></li>
-                        <li><a href="register.php">Kayıt Ol</a></li>
-                        <li><a href="download.php">Oyunu indir</a></li>
+                        <li><a href="index.php">HOME PAGE</a></li>
+                        <li><a href="register.php">REGISTER</a></li>
+                        <li><a href="download.php">DOWNLOAD GAME</a></li>
                     </ul>
                     <div class="logo">
                         <a href="index.php" class="logo-header">
@@ -216,9 +216,9 @@
                         </a>
                     </div>
                     <ul class="right-menu">
-                        <li><a href="player.php">Sıralama</a></li>
-                        <li><a target="_blank" href="https://discord.com/invite/szMPGvTJgm">Destek</a></li>
-                        <li><a target="_blank" href="https://discord.com/invite/qb2NGn2DJ9">Tanıtım</a></li>
+                        <li><a href="player.php">ARRANGEMENT</a></li>
+                        <li><a target="_blank" href="https://discord.com/invite/szMPGvTJgm">SUPPORT</a></li>
+                        <li><a target="_blank" href="https://discord.com/invite/qb2NGn2DJ9">PROMOTION</a></li>
                     </ul>
                 </div>
             </nav>

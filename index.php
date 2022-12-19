@@ -11,7 +11,7 @@
                 <div class="update-available">
                     <div class="update-inner">
                         <div class="update-label">
-                            <h3>Haberler&Duyurular</h3>
+                            <h3>News & Announcements</h3>
                         </div>
                         <div class="update-available-inner">
                             <br>

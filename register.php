@@ -24,7 +24,7 @@
                 <div class="update-available">
                     <div class="update-inner">
                         <div class="update-label">
-                            <h3>Kayıt Ol</h3>
+                            <h3>Register</h3>
                         </div>
                         <div class="update-available-inner">
                             <?php
@@ -68,20 +68,20 @@
                                     if ($kontrol) {
                                     ?>
                                         <div class="alert alert-success mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                            <b>Üyelik</b> başarılı bir şekilde eklendi
+                                            <b>Membership</b>  added successfully
                                         </div>
                                     <?php
                                     } else {
                                     ?>
                                         <div class="alert alert-danger mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                            <b>Üyelik</b> eklerken bir sorun yaşandı
+                                        <b>There</b> was a problem adding a membership
                                         </div>
                                     <?php
                                     }
                                 } else {
                                     ?>
                                     <div class="alert alert-danger mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                        Şifreler Eşleşmiyor Lütfen Kontrol Ediniz
+                                    Passwords Do Not Match Please Check
                                     </div>
                             <?php
                                 }
@@ -94,59 +94,59 @@
                                     <tbody>
                                         <tr>
                                             <td align="center">
-                                                <label>Kullanıcı Adı <br>
+                                                <label>User  <br>
                                                     <input type="text" name="login" id="login" required maxlength="16" />
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
-                                                <label>Şifre <br>
+                                                <label>Password <br>
                                                     <input type="password" name="password" id="pass" required maxlength="30" />
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
-                                                <label>Şifre Tekrar <br>
+                                                <label>Password Repeat <br>
                                                     <input type="password" name="password2" id="pass2" required maxlength="30" />
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
-                                                <label>Mail Adresi <br>
+                                                <label>Email Address <br>
                                                     <input type="email" name="email" id="email" required />
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
-                                                <label>İsim Soyisim <br>
+                                                <label>Name surname <br>
                                                     <input id="name" type="text" name="name" maxlength="60" required />
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
-                                                <label>Adres <br>
+                                                <label>Address <br>
                                                     <input id="ksk" type="text" name="ksk"  required />
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
-                                                <label>Telefon <br>
+                                                <label>Telephone <br>
                                                     <input type="text" id="phone" name="phone" maxlength="10" placeholder="555-555-55-55" required />
                                                 </label>
                                             </td>
                                         </tr>
                                         <div class="form-group">
                                             <td align="center">
-                                                <label>Bizi nerden buldunuz?
+                                                <label>Where did you find us?
                                                     <br>
                                                     <select name="findme" class="select-box">
-                                                        <option value="yok" selected>Lütfen seçiniz...</option>
+                                                        <option value="yok" selected>Please choose...</option>
                                                         <option value="google">Google</option>
                                                         <option value="facebook">Facebook</option>
                                                         <option value="youtube">Youtube</option>
@@ -169,14 +169,14 @@
                                         <tr>
                                             <td align="center">
                                                 <label>
-                                                    <span>Kayıt olarak <a href="privacy/index.php" target="_blank">üyelik sözleşmesini</a> kabul ederim.</span>
+                                                    <span>By registration <a href="" target="_blank">I accept the membership </a> agreement.</span>
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
                                                 <br>
-                                                <input type="submit" value="Kayıt Ol">
+                                                <input type="submit" value="Register">
                                             </td>
                                         </tr>
                                     </tbody>

@@ -12,24 +12,24 @@
                 <div class="update-available">
                     <div class="update-inner">
                         <div class="update-label">
-                            <h3>Oyuncu Sıralaması</h3>
+                            <h3>Player Ranking</h3>
                         </div>
                         <div class="update-available-inner">
                             <div style="margin-left:10px;margin-bottom:20px;text-align: center;">
-                                <a href="javascript:void(0);"><button class="account-btn">Oyuncu Sıralaması</button></a>
-                                <a href="guild.html"><button class="account-btn">Lonca Sıralaması</button></a>
+                                <a href="javascript:void(0);"><button class="account-btn">Player Ranking</button></a>
+                                <a href="guild.html"><button class="account-btn">Guild Ranking</button></a>
                                 <div class="ucp_divider"></div>
                             </div>
                             <table id="large" cellspacing="0" class="sidebar_rank">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>İsim</th>
-                                        <th>Seviye</th>
-                                        <th>Bayrak</th>
-                                        <th>Lonca</th>
-                                        <th>Karakter</th>
-                                        <th>Durum</th>
+                                        <th>Name</th>
+                                        <th>Level</th>
+                                        <th>Flag</th>
+                                        <th>Guild</th>
+                                        <th>Character</th>
+                                        <th>Situation</th>
                                     </tr>
                                 </thead>
                                 <tbody>

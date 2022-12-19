@@ -44,23 +44,23 @@ if (isset($_SESSION['giris_tamam'])) {
                 }
                 ?>
                 <form action="paytr.php" class="page_form">
-                    <input type="text" placeholder="Kullanıcı Adınız" value="<?php echo $kullanici_adi ?>">
+                    <input type="text" placeholder="Your User Name" value="<?php echo $kullanici_adi ?>">
                     <br>
                     <br>
-                    <input type="text" placeholder="Mail Adresiniz" value="<?php echo $mail_adresi ?>">
+                    <input type="text" placeholder="Your Email Address" value="<?php echo $mail_adresi ?>">
                     <br>
                     <br>
                     <select name="price" class="select-box">
-                        <option value="yok" selected="">paket seçiniz...</option>
-                        <option value="Paket1">Paket 1</option>
-                        <option value="Paket2">Paket 2</option>
-                        <option value="Paket3">Paket 3</option>
-                        <option value="Paket4">Paket 4</option>
-                        <option value="Paket5">Paket 5</option>
+                        <option value="yok" selected="">Package Select...</option>
+                        <option value="Paket1">Package 1</option>
+                        <option value="Paket2">Package 2</option>
+                        <option value="Paket3">Package 3</option>
+                        <option value="Paket4">Package 4</option>
+                        <option value="Paket5">Package 5</option>
                     </select>
                     <br>
                     <br>
-                    <input type="submit" value="SATIN AL">
+                    <input type="submit" value="BUY NOW">
                 </form>
             </div>
         </div>

@@ -36,7 +36,7 @@
                             <div class="main404">
                                 <div class="sub404">
                                     <h1 style="font-size:52px;font-weight:bold">404</h1>
-                                    Aradığınız Sayfa Bulunamadı!
+                                    The Page You Are Looking For Could Not Be Found!
                                 </div>
                             </div>
                         </div>

@@ -12,23 +12,23 @@
                 <div class="update-available">
                     <div class="update-inner">
                         <div class="update-label">
-                            <h3>Şifremi Unuttum</h3>
+                            <h3>forgot password</h3>
                         </div>
                         <div class="update-available-inner">
-                            <form id="forgetPasswordForm" action="https://demo.metin2panel.com/ares/recuperare/control" method="post" accept-charset="utf-8" class="page_form" autocomplete="off">
+                            <form id="" action="" method="post" accept-charset="utf-8" class="page_form" autocomplete="off">
                                 <table border="0" align="center" width="100%">
                                     <tbody>
                                         <tr>
                                             <td align="center">
-                                                <label>Kullanıcı Adı <br>
-                                                    <input type="text" name="login" id="login" required maxlength="16" />
+                                                <label>User name<br>
+                                                    <input type="text" name="login" id="login" required maxlength="16" placeholder="Email Address"/>
                                                 </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td align="center">
-                                                <label>Şifre <br>
-                                                    <input type="text" name="email" id="email" placeholder="Mail Adresi">
+                                                <label>Email Address <br>
+                                                    <input type="email" name="email" id="email" placeholder="Email Address">
                                                 </label>
                                             </td>
                                         </tr>
@@ -45,7 +45,7 @@
                                         <tr>
                                             <td align="center">
                                                 <br>
-                                                <input type="submit" value="Mail Gönder">
+                                                <input type="submit" value="Reset Password">
                                             </td>
                                         </tr>
                                     </tbody>
@@ -54,28 +54,6 @@
                         </div>
                     </div>
                 </div>
-                <script>
-                    $("#forgetPasswordForm").on("submit", function(event) {
-                        event.preventDefault();
-
-                        var url = $(this).attr("action");
-                        var data = $(this).serialize();
-
-                        $.ajax({
-                            url: url,
-                            type: 'POST',
-                            data: data,
-                            dataType: 'json',
-                            success: function(response) {
-                                grecaptcha.reset();
-                                if (response.result)
-                                    successNotify(response.message);
-                                else
-                                    errorNotify(response.message);
-                            }
-                        });
-                    });
-                </script>
             </div>
             <?php include "section/market.php" ?>
         </div>
