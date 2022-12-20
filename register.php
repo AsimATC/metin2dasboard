@@ -62,26 +62,38 @@
                                         "adres" =>   $adres,
                                         "telefon" =>   $telefon,
                                         "nerden_buldun" =>   $nerden_buldun,
+                                    ));
 
+                                    // members info saved
+                                    $ekle2 = $db->prepare("INSERT INTO memberinfo SET
+                                    uPassword = :uPassword,
+                                    email = :email,
+                                    uCash = :uCash
+                                    ");
+
+                                    $kontrol2 = $ekle2->execute(array(
+                                        "uPassword" =>   $sifre,
+                                        "email" =>   $mail_adresi,
+                                        "uCash" => "none",
                                     ));
 
                                     if ($kontrol) {
-                                    ?>
+                            ?>
                                         <div class="alert alert-success mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                            <b>Membership</b>  added successfully
+                                            <b>Membership</b> added successfully
                                         </div>
                                     <?php
                                     } else {
                                     ?>
                                         <div class="alert alert-danger mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                        <b>There</b> was a problem adding a membership
+                                            <b>There</b> was a problem adding a membership
                                         </div>
                                     <?php
                                     }
                                 } else {
                                     ?>
                                     <div class="alert alert-danger mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                    Passwords Do Not Match Please Check
+                                        Passwords Do Not Match Please Check
                                     </div>
                             <?php
                                 }
@@ -94,7 +106,7 @@
                                     <tbody>
                                         <tr>
                                             <td align="center">
-                                                <label>User  <br>
+                                                <label>User <br>
                                                     <input type="text" name="login" id="login" required maxlength="16" />
                                                 </label>
                                             </td>
@@ -130,7 +142,7 @@
                                         <tr>
                                             <td align="center">
                                                 <label>Address <br>
-                                                    <input id="ksk" type="text" name="ksk"  required />
+                                                    <input id="ksk" type="text" name="ksk" required />
                                                 </label>
                                             </td>
                                         </tr>

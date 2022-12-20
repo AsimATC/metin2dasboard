@@ -1,7 +1,7 @@
 <?php
 
 $mysqlsunucu = "localhost";
-$mysqladi = "metin2";
+$mysqladi = "ts25_gamedb";
 $mysqlkullanici = "root";
 $mysqlsifre = "";
 
