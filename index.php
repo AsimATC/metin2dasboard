@@ -1,9 +1,43 @@
-<?php include "section/header.php" ?>
+<?php include "section/header.php";
+
+$paymenty_control = $_GET['payment'];
+
+if (!empty($paymenty_control)){
+    if ($paymenty_control == "true") {
+        ?>
+        
+            <script>
+                Swal.fire({
+                    title: 'Payment received successfully.',
+                    text: 'Your order information has been saved in the system',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
+            </script>
+        
+        <?php
+        } else {
+            ?>
+            <script>
+                Swal.fire({
+                    title: 'ERROR.',
+                    text: 'The payment transaction was made successfully, but no notification was made on the admin side. Please report the situation by contacting support in the menu',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                })
+            </script>
+            <?php
+        }
+} else {
+
+}
+
+?>
 <!-- content start -->
 <div class="content clearfix">
     <div class="container">
         <div class="content-main">
-           <?php include "section/giris.php" ?>
+            <?php include "section/giris.php" ?>
             <div class="middle-part">
                 <div class="top-banner-middle">
                     <img src="app/public/client/ares/asset/images/top-banner-img.png" alt="top-banner-img">
@@ -71,9 +105,12 @@
                             <div class="facebook-like">
                                 <img src="app/public/client/ares/main/images/face.png" alt="">
                                 <a href="javascript:void(0)" onclick="document.getElementById('facebookLike').style.display='none';" style="display:block;width:23px;height:23px;margin:0px;padding:0px;border:none;background-color:transparent;position:absolute;top:23px;right:70px;-webkit-border-radius: 12px;border-radius: 12px;"></a>
+                                <a href="https://www.facebook.com/people/Twelve-sky-2-Reloaded-/100088134660860/?mibextid=ZbWKwL" style="    position: absolute;right: 64px;bottom: 73px;display: block;width: 200px;height: 40px;z-index: 2;"> </a>
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/Twelve-sky-2-Reloaded&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=segoe+ui&amp;height=30&amp;appId=515295435153698" scrolling="no" frameborder="0" style="position:absolute;bottom:82px;right:104px;border:none; overflow:hidden; width:98px; height:21px;" allowtransparency="true"></iframe>
 
-                                <iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/metinpanel&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=segoe+ui&amp;height=30&amp;appId=515295435153698" scrolling="no" frameborder="0" style="position:absolute;bottom:82px;right:104px;border:none; overflow:hidden; width:98px; height:21px;" allowtransparency="true"></iframe>
-
+                                <!--                
+                                <iframe src="https://www.facebook.com/plugins/like.php?href=https://www.facebook.com/Twelve-sky-2-Reloaded&amp;send=false&amp;layout=button_count&amp;width=120&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font=segoe+ui&amp;height=30&amp;appId=515295435153698" scrolling="no" frameborder="0" style="position:absolute;bottom:82px;right:104px;border:none; overflow:hidden; width:98px; height:21px;" allowtransparency="true"></iframe>
+                                -->
 
                             </div>
                         </a>
@@ -105,7 +142,7 @@
                     }
                 </script>
             </div>
-           <?php include "section/market.php" ?>
+            <?php include "section/market.php" ?>
         </div>
     </div>
 </div>

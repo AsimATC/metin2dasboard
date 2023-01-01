@@ -21,15 +21,15 @@
     <!-- /favicon -->
 
     <!-- Meta -->
-    <meta name="keywords" content="metin2, Metin2 Panel, emek, orta emek, metin, pvp server metin2" />
-    <meta name="description" content="Metin2 Panel pvp server Metin2 emek/zor." />
+    <meta name="keywords" content="Twelve sky 2 reloaded" />
+    <meta name="description" content="Twelve sky 2 reloaded." />
     <!-- /meta -->
 
     <!-- OpenGraph tags (espec. Facebook) -->
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="index-2.php" />
-    <meta property="og:title" content="Metin2 Panel - Metin2 PVP Server" />
-    <meta property="og:description" content="Metin2 Panel-#. Uzun süre boyunca, hoş dengeli ve ilginç oyun sunuyoruz!" />
+    <meta property="og:url" content="index.php" />
+    <meta property="og:title" content="Twelve sky 2 reloaded" />
+    <meta property="og:description" content="Twelve sky 2 reloaded!" />
     <meta property="og:image" content="data/upload/5f84556cc96374.71381751_epqmjflikognh.png" />
     <!-- /openGraph tags -->
 
@@ -58,6 +58,7 @@
     <script src="app/public/client/ares/asset/js/bootstrap.min.js"></script>
     <script src="app/public/client/ares/asset/js/popper.min.js"></script>
     <!-- Object Fit -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.16/dist/sweetalert2.all.min.js"></script>
 
     <script type='text/javascript' src='app/public/client/ares/asset/js/select.js'></script>
     <script type='text/javascript' src='app/public/client/ares/asset/js/popuplogin.js'></script>
@@ -216,9 +217,9 @@
                         </a>
                     </div>
                     <ul class="right-menu">
-                        <li><a href="player.php">ARRANGEMENT</a></li>
+                        <li><a href="player.php">RANKS </a></li>
                         <li><a target="_blank" href="https://discord.com/invite/szMPGvTJgm">SUPPORT</a></li>
-                        <li><a target="_blank" href="https://discord.com/invite/qb2NGn2DJ9">PROMOTION</a></li>
+                        <li><a target="_blank" href="https://discord.com/invite/qb2NGn2DJ9">GUIDE</a></li>
                     </ul>
                 </div>
             </nav>

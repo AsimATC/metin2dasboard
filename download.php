@@ -4,7 +4,7 @@
 <div class="content clearfix">
     <div class="container">
         <div class="content-main">
-        <?php include "section/giris.php" ?>
+            <?php include "section/giris.php" ?>
             <div class="middle-part">
                 <div class="top-banner-middle">
                     <img src="app/public/client/ares/asset/images/top-banner-img.png" alt="top-banner-img">
@@ -47,6 +47,17 @@
                                     <strong>VGA:</strong> 3D GeForce FX 5600 or ATI9500<br>
                                     <strong>HDD:</strong> 2 GB<br><br>
                                 </div>
+                            </div>
+                            <div>
+                                <b>
+                                    <a href="https://drive.google.com/file/d/1UmZ5aFjg4H8cbTJClaxWcKMMcrVFCY3c/view?usp=sharing" target="_blank">Alternative download link-1</a>
+                                    <br>
+                                    <br>
+                                    <a href="https://drive.google.com/file/d/1f1G0ZiyCmZbCNvmVgpteYQFzcCUqheej/view?usp=sharing" target="_blank">Alternative download link-2</a>
+                                    <br>
+                                    <br>
+                                    <a href="https://drive.google.com/file/d/1_l2r-xqvpq5DrT3fN4qBFef1ks_Kh8zX/view?usp=drivesdk" target="_blank">Alternative download link-3</a>
+                                </b>
                             </div>
                         </div>
                     </div>

@@ -38,7 +38,7 @@
     ?>
         <div class="shop-item">
             <img src="app/public/client/ares/asset/images/shop-image.jpg" alt="shop" class="img-fluid">
-            <a href="paketler.php" class=""><button class="btn btn-shop disable-btn">Market</button></a>
+            <a href="paketler.php" class=""><button class="btn btn-shop disable-btn">Top up</button></a>
         </div>
     <?php
     } else {

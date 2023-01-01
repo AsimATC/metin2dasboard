@@ -29,75 +29,92 @@
                         <div class="update-available-inner">
                             <?php
 
-                            # ekleme işlemi olackatır 
+
+                            /// Formu post etti kontrolü
                             if ($_POST) {
-                                $sifre = $_POST["password"];
-                                $sifre2 = $_POST["password2"];
 
-                                if ($sifre == $sifre2) {
+                                $sifre = $_POST['password'];
+                                $sifre2 = $_POST['password2'];
+                                $mail_adresi = $_POST['email'];
+                                $kullanici_adi = $_POST['user_name'];
 
-                                    $kullanici_adi = $_POST["login"];
-                                    $mail_adresi = $_POST["email"];
-                                    $isim_soyisim = $_POST["name"];
-                                    $adres = $_POST["ksk"];
-                                    $telefon = $_POST["phone"];
-                                    $nerden_buldun = $_POST["findme"];
 
-                                    $ekle = $db->prepare("INSERT INTO kullanicilar SET
-                                    kullanici_adi = :kullanici_adi,
-                                    sifre = :sifre,
-                                    mail_adresi = :mail_adresi,
-                                    isim_soyisim = :isim_soyisim,
-                                    adres = :adres,
-                                    telefon = :telefon,
-                                    nerden_buldun = :nerden_buldun
-                                    ");
+                                $kullanicikontrol = $db->prepare("SELECT * FROM memberinfo WHERE uID = ?");
+                                $kullanicikontrol->execute([$kullanici_adi]);
+                                $kullanicikontrolsayisi = $kullanicikontrol->rowCount();
 
-                                    $kontrol = $ekle->execute(array(
+                                // Kullanıcı var mı yok mu kontrol
+                                if ($kullanicikontrolsayisi == 0) {
 
-                                        "kullanici_adi" =>   $kullanici_adi,
-                                        "sifre" =>   $sifre,
-                                        "mail_adresi" =>   $mail_adresi,
-                                        "isim_soyisim" =>   $isim_soyisim,
-                                        "adres" =>   $adres,
-                                        "telefon" =>   $telefon,
-                                        "nerden_buldun" =>   $nerden_buldun,
-                                    ));
+                                    // Şifre Kontrol
+                                    if ($sifre ==  $sifre2) {
 
-                                    // members info saved
-                                    $ekle2 = $db->prepare("INSERT INTO memberinfo SET
-                                    uPassword = :uPassword,
-                                    email = :email,
-                                    uCash = :uCash
-                                    ");
+                                        // Veri tabanına kaydetme
+                                        $ekle = $db->prepare("INSERT INTO memberinfo SET
+                                        uID = :uID,
+                                        email = :email,
+                                        uPassword = :uPassword
+                                        ");
 
-                                    $kontrol2 = $ekle2->execute(array(
-                                        "uPassword" =>   $sifre,
-                                        "email" =>   $mail_adresi,
-                                        "uCash" => "none",
-                                    ));
+                                        echo "var ";
 
-                                    if ($kontrol) {
+                                        $kontrol = $ekle->execute(array(
+                                            "uID" => $kullanici_adi,
+                                            "email" =>   $mail_adresi,
+                                            "uPassword" =>   $sifre,
+                                        ));
+
+                                        // Veri tabanına kaydettimi kontrol ediliyor
+                                        if ($kontrol) {
                             ?>
-                                        <div class="alert alert-success mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                            <b>Membership</b> added successfully
-                                        </div>
-                                    <?php
-                                    } else {
-                                    ?>
-                                        <div class="alert alert-danger mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                            <b>There</b> was a problem adding a membership
-                                        </div>
+                                            <script>
+                                                Swal.fire({
+                                                    title: 'Registered',
+                                                    text: 'Membership added successfully. Automatically signed in !',
+                                                    icon: 'success',
+                                                    confirmButtonText: 'OK'
+                                                })
+                                            </script>
+                                        <?php
+
+                                            $_SESSION['giris_tamam'] = $kullanici_adi;
+                                        } else {
+                                        ?>
+                                            <script>
+                                                Swal.fire({
+                                                    title: 'Error ',
+                                                    text: 'There was a problem adding a membership',
+                                                    icon: 'error',
+                                                    confirmButtonText: 'OK'
+                                                })
+                                            </script>
+                                        <?php
+                                        }
+                                    } else {   // Şifre Kontrol
+                                        ?>
+                                        <script>
+                                            Swal.fire({
+                                                title: 'Passwords ',
+                                                text: ' Passwords Do Not Match Please Check !',
+                                                icon: 'error',
+                                                confirmButtonText: 'OK'
+                                            })
+                                        </script>
                                     <?php
                                     }
-                                } else {
+                                } else { //Kullanıcı var mı yok mu kontrol
                                     ?>
-                                    <div class="alert alert-danger mx-auto adres" role="alert" style="font-size: 13px; max-width:760px;">
-                                        Passwords Do Not Match Please Check
-                                    </div>
+                                    <script>
+                                        Swal.fire({
+                                            title: 'available ',
+                                            text: ' Registered User available !',
+                                            icon: 'info',
+                                            confirmButtonText: 'OK'
+                                        })
+                                    </script>
                             <?php
                                 }
-                            } else {
+                            } else { // Formu post etti kontrolü
                             }
 
                             ?>
@@ -106,8 +123,8 @@
                                     <tbody>
                                         <tr>
                                             <td align="center">
-                                                <label>User <br>
-                                                    <input type="text" name="login" id="login" required maxlength="16" />
+                                                <label>User Name<br>
+                                                    <input type="text" name="user_name" id="login" required maxlength="16" />
                                                 </label>
                                             </td>
                                         </tr>

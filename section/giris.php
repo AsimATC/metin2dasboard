@@ -28,39 +28,52 @@
         // Gelen Post var mı varsa bunları değişkene aktar yapılıyor
         if (isset($_POST['giris'])) {
 
-            $mail = $_POST['login'];
+            $uid = $_POST['login'];
             $sifre = $_POST['password'];
 
             // Mail ile şifre boşmu dolu ise bu şekilde bir kullanıcı var mı 
-            if ($mail == "" or $sifre == "") { ?>
-                <div class="alert alert-danger" role="alert">
-                    Please do not go blank !
-                </div>
+            if ($uid == "" or $sifre == "") { ?>
+            <script>
+                        Swal.fire({
+                            title: 'Error!',
+                            text: ' Please do not go blank !',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        })
+                    </script>
                 <?php
             } else {
-                $kullanicikontrol = $db->prepare("SELECT * FROM kullanicilar WHERE kullanici_adi = ? and sifre = ?");
-                $kullanicikontrol->execute([$mail, $sifre]);
+                $kullanicikontrol = $db->prepare("SELECT * FROM memberinfo WHERE uID = ? and uPassword = ?");
+                $kullanicikontrol->execute([$uid, $sifre]);
                 $kullanicikontrolsayisi = $kullanicikontrol->rowCount();
 
                 // Kullanıcı var mı varsa vt de var mı 
                 if ($kullanicikontrolsayisi > 0) {
 
-                    $_SESSION['giris_tamam'] = $mail;
+                    $_SESSION['giris_tamam'] = $uid;
 
                 ?>
-                    <div class="alert alert-success" role="alert">
-                        Successfully logged in, <b>
-                            <!--yönlendiriliyorsunuz-->
-                        </b>
-                    </div>
+                    <script>
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Successfully logged in',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        })
+                    </script>
                 <?php
 
                     //header("refresh:1, url=admin_paneli.php");
                 } else {
                 ?>
-                    <div class="alert alert-danger" role="alert">
-                        User not found !
-                    </div>
+                    <script>
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'User not found !',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        })
+                    </script>
         <?php
                 }
             }

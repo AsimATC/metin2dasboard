@@ -5,6 +5,23 @@ if (isset($_SESSION['giris_tamam'])) {
 } else {
     header('Location: index.php');
 }
+
+if ($_GET['bos'] == "true") {
+?>
+
+    <script>
+        Swal.fire({
+            title: 'Form cannot be empty!',
+            text: ' Fill in the form completely !',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        })
+    </script>
+
+<?php
+} else {
+}
+
 ?>
 
 <style>
@@ -30,37 +47,47 @@ if (isset($_SESSION['giris_tamam'])) {
                 <h3>MARKET </h3>
             </div>
             <div class="update-available-inner">
+
                 <?php
 
-                $mail = $_SESSION['giris_tamam'];
+                $uID = $_SESSION['giris_tamam'];
 
-                $bilgilersor = $db->prepare("SELECT * FROM kullanicilar WHERE kullanici_adi = ? ");
-                $bilgilersor->execute([$mail]);
+                $bilgilersor = $db->prepare("SELECT * FROM memberinfo WHERE uID = ? ");
+                $bilgilersor->execute([$uID]);
 
                 foreach ($bilgilersor as $bilgiler) {
-
-                    $kullanici_adi = $bilgiler['kullanici_adi'];
-                    $mail_adresi = $bilgiler['mail_adresi'];
+                    $kullanici_adi = $bilgiler['uID'];
+                    $mail_adresi = $bilgiler['email'];
                 }
                 ?>
-                <form action="paytr.php" class="page_form">
-                    <input type="text" placeholder="Your User Name" value="<?php echo $kullanici_adi ?>">
+                <form action="paytr.php" method="POST" class="page_form">
+                    <input type="text" name="Kullanici_adi" placeholder="Your User Name" value="<?php echo  $kullanici_adi ?>">
                     <br>
                     <br>
-                    <input type="text" placeholder="Your Email Address" value="<?php echo $mail_adresi ?>">
+                    <input type="text" name="mail_adres" placeholder="Your Email Address" value="<?php echo $mail_adresi ?>">
                     <br>
                     <br>
-                    <select name="price" class="select-box">
-                        <option value="yok" selected="">Package Select...</option>
-                        <option value="Paket1">Package 1</option>
-                        <option value="Paket2">Package 2</option>
-                        <option value="Paket3">Package 3</option>
-                        <option value="Paket4">Package 4</option>
-                        <option value="Paket5">Package 5</option>
+                    <input type="text" name="adres" placeholder="Your address">
+                    <br>
+                    <br>
+                    <input type="text" name="phone" maxlength="10" placeholder="555-555-55-55" />
+                    <br>
+                    <br>
+                    <select name="packet" class="select-box">
+                        <option value="Paket1" selected>100₺ : - Buy Now 200 gp</option>
+                        <option value="Paket2">200₺ : - Buy Now 500 gp</option>
+                        <option value="Paket3">500₺ : - Buy Now 1350 gp</option>
+                        <option value="Paket4">1000₺ : - Buy Now 2600 gp</option>
+                        <option value="Paket5">2000₺ : - Buy Now 5500 gp</option>
+                        <option value="Paket6">5000₺ : - Buy Now 14000 gp</option>
                     </select>
                     <br>
                     <br>
                     <input type="submit" value="BUY NOW">
+                    <br>
+                    <small>
+                        The under construction
+                    </small>
                 </form>
             </div>
         </div>
